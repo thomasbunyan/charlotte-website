@@ -9,7 +9,8 @@ prod:
 down:
 	docker-compose down
 
-clean:
+clean: ./src
 	docker-compose down -v
+	rm -rf ./src
 
 .PHONY: all dev down clean

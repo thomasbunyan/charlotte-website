@@ -19,6 +19,9 @@ node_modules/
 *.sql
 *.sqlite
 
+# Deploy bundle
+package.tar.gz
+
 # vscode
 .vscode/*
 !.vscode/settings.json

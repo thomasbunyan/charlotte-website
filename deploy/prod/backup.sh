@@ -13,3 +13,13 @@ gsutil cp wordpress-backup-${timestamp}.tar.gz gs://charlotte-website-backup/
 echo 'Clean up local backup'
 rm -rf file
 rm -rf wordpress-backup-${timestamp}.tar.gz
+
+
+
+
+# New stuff
+# Create bundle
+tar -czvf package.tar.gz src/wp-content/updraft/backup*
+
+# Unpackage bundle
+tar -xvzf package.tar.gz

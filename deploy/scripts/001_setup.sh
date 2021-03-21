@@ -24,7 +24,7 @@ sudo apt install nginx -y
 sudo systemctl start nginx
 
 # Nginx conf
-sudo cp ./config/www.charlottebunyan.com.conf /etc/nginx/sites-available/
+sudo cp ./nginx/www.charlottebunyan.com.conf /etc/nginx/sites-available/
 sudo cd /etc/nginx/sites-enabled && ln -s /etc/nginx/sites-available/www.charlottebunyan.com.conf www.charlottebunyan.com.conf 
 sudo systemctl restart nginx
 

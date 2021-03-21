@@ -1,0 +1,38 @@
+#!/bin/bash
+
+timestamp=$(date +%s)
+
+echo 'Generate Wordpress backup'
+wp updraftplus backup --label="backup"
+tar cvfz wordpress-backup-${timestamp}.tar.gz backup
+rm -f backup
+
+echo 'Upload Wordpress backup to GS bucket'
+gsutil cp wordpress-backup-${timestamp}.tar.gz gs://charlotte-website-backup/
+
+echo 'Clean up local backup'
+rm -rf file
+rm -rf wordpress-backup-${timestamp}.tar.gz
+
+
+
+
+# New stuff
+# Create bundle
+tar -czvf package.tar.gz src/wp-content/updraft/backup*
+
+# Unpackage bundle
+tar -xvzf package.tar.gz
+
+
+#old 
+#!/bin/bash
+  
+timestamp=$(date +%s)
+# trigger backup to location /var/lib/wordpress/backups/foobar
+touch file
+tar cvfz wordpress-backup-${timestamp}.tar.gz file
+echo 'Upload Wordpress backup to GS bucket'
+gsutil cp wordpress-backup-${timestamp}.tar.gz gs://charlotte-website-backup/
+echo 'Clean up local backup'
+rm -f wordpress-backup-${timestamp}.tar.gz

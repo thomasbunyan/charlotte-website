@@ -20,7 +20,7 @@ node_modules/
 *.sqlite
 
 # Deploy bundle
-package.tar.gz
+*.tar.gz
 
 # vscode
 .vscode/*
@@ -34,3 +34,6 @@ package.tar.gz
 .history/
 
 .env
+
+# backups
+backup*/

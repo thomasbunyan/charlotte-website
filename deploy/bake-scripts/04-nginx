@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo cd /etc/nginx/sites-enabled && ln -s /etc/nginx/sites-available/charlottebunyan charlottebunyan
+
+sudo systemctl start nginx

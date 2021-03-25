@@ -1,7 +1,7 @@
 all: package
 
 package:
-	rm -f package.tar.gz
-	tar -czf package.tar.gz ./deploy ./nginx ./src ./docker-compose.yml ./.template.env
+	rm -f bundle.tar.gz
+	cd src && tar czf ../bundle.tar.gz . && cd -
 
 .PHONY: all package

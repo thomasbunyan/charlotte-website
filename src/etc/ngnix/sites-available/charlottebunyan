@@ -1,4 +1,4 @@
-# Base host configuration for www.charlottebunyan.com. This is updated by certbot.
+# Base host configuration for charlottebunyan.com. This is updated by certbot.
   
 server {
   root /var/www/html;

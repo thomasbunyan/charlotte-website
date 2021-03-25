@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Docker
+curl https://get.docker.com > install-docker.sh
+chmod 775 install-docker.sh
+sudo ./install-docker.sh
+sudo usermod -aG docker $(whoami)
+
+# Get docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.28.6/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod 755 /usr/local/bin/docker-compose

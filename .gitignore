@@ -21,6 +21,7 @@ node_modules/
 
 # Deploy bundle
 *.tar.gz
+*.tar
 
 # vscode
 .vscode/*

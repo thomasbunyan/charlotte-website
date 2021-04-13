@@ -21,6 +21,7 @@ services:
       - wp_data:/var/www/html
       - ./config/php.ini:/usr/local/etc/php/conf.d/php.ini
       - ./config/wp-config.php:/var/www/html/wp-config.php
+      - ./config/env:/var/www/html/env
       - ./web/plugins:/var/www/html/wp-content/plugins
       - ./web/themes:/var/www/html/wp-content/themes
     ports:

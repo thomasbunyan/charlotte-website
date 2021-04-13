@@ -69,10 +69,6 @@ define('NONCE_SALT', getenv_docker('WORDPRESS_NONCE_SALT',       '3e6498469e8ff4
  */
 define('AUTOMATIC_UPDATER_DISABLED', true);
 define('DISABLE_WP_CRON', getenv_docker('DISABLE_WP_CRON', false));
-// Disable the plugin and theme file editor in the admin
-define('DISALLOW_FILE_EDIT', true);
-// Disable plugin and theme updates and installation from the admin
-define('DISALLOW_FILE_MODS', true);
 
 /**
  * Debugging Settings

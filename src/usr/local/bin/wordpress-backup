@@ -1,0 +1,56 @@
+#!/bin/bash
+
+LOG_FILE="/var/log/wordpress/backup.log"
+WP_CONTAINER="charlotte-website-wordpress"
+DB_CONTAINER="charlotte-website-mariadb"
+
+function backup() {
+  echo "[$(date +%Y-%m-%d:%T)] Starting backup"
+
+  sudo mkdir -p /tmp/charlotte-website/backup
+
+  # Generate backups from the volume
+  echo "[$(date +%Y-%m-%d:%T)] Backup volume"
+  docker run --rm --volumes-from $WP_CONTAINER -v /tmp/charlotte-website/backup:/backup ubuntu tar cf /backup/wp_backup.tar /var/www/html
+
+  # Dump the DB
+  # This needs to be executed as root
+  echo "[$(date +%Y-%m-%d:%T)] Backup DB"
+  sudo -u root -H sh -c "docker exec $DB_CONTAINER /usr/bin/mysqldump -u root --password=$pw $db > /tmp/charlotte-website/backup/db_backup.sql"
+
+  # gzip the backups
+  cd /tmp/charlotte-website/backup && sudo tar czf ../backup.tar.gz .
+
+  # Ship the backups to external storage
+  timestamp=$(date +%Y-%m-%d:%T)
+  cd /tmp/charlotte-website && gsutil cp backup.tar.gz gs://charlotte-website-backup/wordpress-backup-$timestamp.tar.gz
+  echo "[$(date +%Y-%m-%d:%T)] Created backup: wordpress-backup-$timestamp.tar.gz"
+
+  # Clean the backups
+  sudo rm -rf /tmp/charlotte-website/backup
+  sudo rm -f /tmp/charlotte-website/backup.tar.gz
+
+  echo "[$(date +%Y-%m-%d:%T)] Backup complete"
+}
+
+function usage() {
+  echo -e "\nError: Missing arguments\n"
+  echo "Usage: $0 [-d --database] [-p --password]"
+  echo "  -d, --database    The name of the database to restore"
+  echo "  -p, --password    The password to the specified database"
+  exit 1
+}
+
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -d|--database) db="$2"; shift ;;
+        -p|--password) pw="$2"; shift ;;
+        *) echo "Unknown parameter passed: $1"; exit 1 ;;
+    esac
+    shift
+done
+
+if [ -z "$db" ]; then usage; fi;
+if [ -z "$pw" ]; then usage; fi;
+
+backup

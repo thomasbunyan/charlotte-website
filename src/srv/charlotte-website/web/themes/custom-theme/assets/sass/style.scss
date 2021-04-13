@@ -1,0 +1,15 @@
+/* Settings */
+@import "settings/file-header";
+@import "settings/fonts";
+@import "settings/global";
+
+/* Components */
+@import "components/header";
+@import "components/front-page";
+@import "components/page";
+@import "components/home";
+@import "components/single";
+
+body {
+  background-color: $background-pink;
+}

@@ -1,0 +1,59 @@
+#!/bin/bash
+
+WP_CONTAINER="charlotte-website-wordpress"
+DB_CONTAINER="charlotte-website-mariadb"
+
+function restore() {
+  echo "[$(date +%Y-%m-%d:%T)] Restoring from last backup"
+
+  # Set backup to restore from
+  if [[ -z "${BACKUP_FILE}" ]]; then
+    file=$(gsutil ls -l gs://charlotte-website-backup/ | head -n -1 | sort -k 3 -r | head -n 1 | tr -s " " | cut -d " " -f 4)
+  else
+    file="${BACKUP_FILE}"
+  fi
+  echo "[$(date +%Y-%m-%d:%T)] Found $file to restore from"
+
+  # Obtain backup
+  sudo gsutil cp $file /tmp/charlotte-website/backup-restore.tar.gz
+
+  # Unzip backup
+  cd /tmp/charlotte-website && sudo tar xzf backup-restore.tar.gz -C backup-restore
+
+  # Restore volume from backup
+  docker run --rm --volumes-from $WP_CONTAINER -v /tmp/charlotte-website/backup-restore:/backup ubuntu bash -c "cd /var/www/html && tar xf /backup/wp_backup.tar --strip 1"
+
+  # Restore DB from dump
+  cat /tmp/charlotte-website/backup-restore/db_backup.sql | docker exec -i $DB_CONTAINER /usr/bin/mysql -u root --password=$pw $db
+
+  # Restart the containers
+  cd /srv/charlotte-website && docker-compose restart
+
+  # Clean the restored backups
+  sudo rm -rf /tmp/charlotte-website/backup-restore
+  sudo rm -f /tmp/charlotte-website/backup-restore.tar.gz
+
+  echo "[$(date +%Y-%m-%d:%T)] Restoration completed"
+}
+
+function usage() {
+  echo -e "\nError: Missing arguments\n"
+  echo "Usage: $0 [-d --database] [-p --password]"
+  echo "  -d, --database    The name of the database to restore"
+  echo "  -p, --password    The password to the specified database"
+  exit 1
+}
+
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -d|--database) db="$2"; shift ;;
+        -p|--password) pw="$2"; shift ;;
+        *) echo "Unknown parameter passed: $1"; exit 1 ;;
+    esac
+    shift
+done
+
+if [ -z "$db" ]; then usage; fi;
+if [ -z "$pw" ]; then usage; fi;
+
+restore

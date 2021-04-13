@@ -1,0 +1,16 @@
+{
+  "name": "charlotte-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:style": "node-sass --include-path scss assets/sass/style.scss   style.css",
+    "watch": "nodemon -e scss -x \"npm run build:style\""
+  },
+  "author": "Thomas Bunyan",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^5.0.0",
+    "nodemon": "^2.0.7"
+  }
+}

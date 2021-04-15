@@ -4,12 +4,8 @@
 @import "settings/global";
 
 /* Components */
-@import "components/header";
 @import "components/front-page";
-@import "components/page";
+@import "components/header";
 @import "components/home";
+@import "components/page";
 @import "components/single";
-
-body {
-  background-color: $background-pink;
-}

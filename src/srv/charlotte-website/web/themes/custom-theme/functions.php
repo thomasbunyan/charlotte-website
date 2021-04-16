@@ -2,7 +2,7 @@
 
 function load_stylesheets() {
 
-  wp_enqueue_style('googlefonts', 'https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&family=Bodoni+Moda&display=swap');
+  wp_enqueue_style('googlefonts', 'https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&display=swap');
 
   wp_register_style('fontawesome', 'https://use.fontawesome.com/releases/v5.15.3/css/all.css', array(), false, 'all');
   wp_enqueue_style('fontawesome');

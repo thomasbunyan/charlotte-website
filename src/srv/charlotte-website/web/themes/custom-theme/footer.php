@@ -2,7 +2,7 @@
 
   <footer>
 
-    <h1>These. Are. Words</h1>
+    <h1>These. Are. Words.</h1>
 
     <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae lacinia ante. Donec eget interdum nulla, id rutrum lectus.</p>
 

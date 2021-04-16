@@ -14,15 +14,16 @@
       <h1>Charlotte Bunyan</h1>
       <h2>Artist & Illustrator</h2>
     
+      <!-- Make this better -->
       <nav id="nav">
-        <!-- <?php
+        <?php
           wp_list_pages( array(
               'title_li' => ''
           ));
-        ?> -->
-        <a href="#">GALLERY</a>
+        ?>
+        <!-- <a href="#">GALLERY</a>
         <a href="#">ABOUT</a>
-        <a href="#">CONTACT</a>
+        <a href="#">CONTACT</a> -->
       </nav>
 
     </header>

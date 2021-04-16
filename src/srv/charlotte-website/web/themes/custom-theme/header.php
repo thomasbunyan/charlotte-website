@@ -9,21 +9,22 @@
 
   <body <?php body_class();?>>
 
-    <header>
+    <header class="noselect">
 
-      <h1>Charlotte Bunyan</h1>
-      <h2>Artist & Illustrator</h2>
+      <a href=<?php echo get_permalink(get_page_by_path('home')->ID) ?> >
+        <h1>Charlotte Bunyan</h1>
+        <h2>Artist & Illustrator</h2>
+      </a>
     
-      <!-- Make this better -->
       <nav id="nav">
         <?php
-          wp_list_pages( array(
-              'title_li' => ''
+          $pages = get_pages(array(
+            'sort_order' => 'DESC',
           ));
+          foreach($pages as $page) {
+            echo '<a href=' . get_page_link(($page->ID)) . '>' . strtoupper($page->post_title) . '</a>';
+          }
         ?>
-        <!-- <a href="#">GALLERY</a>
-        <a href="#">ABOUT</a>
-        <a href="#">CONTACT</a> -->
       </nav>
 
     </header>

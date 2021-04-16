@@ -74,10 +74,15 @@ footer {
         display: flex;
         flex-direction: row;
 
-        i {
+        a {
+          display: inline-block;
           margin: 0 0.5rem;
-          font-size: 25px;
-          color: $black;
+
+          i {
+            font-size: 25px;
+            color: $black;
+          }
+
         }
       }
     }

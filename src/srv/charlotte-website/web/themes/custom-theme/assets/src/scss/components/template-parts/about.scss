@@ -37,21 +37,25 @@
         color: $dark-grey;
       }
 
-      .work-button {
-        display: inline-block;
-        padding: 0.9rem 2rem;
-        border: 2px solid $dark-grey;
-        border-radius: 50px;
-        cursor: pointer;
+      a {
         margin: 1rem 0;
-        transition: all 0.2s ease-in-out;
-
-        &:hover {
-          background-color: $accent-blue;
-          border-color: $accent-blue;
-          color: $white;
+        
+        .work-button {
+          display: inline-block;
+          border: 2px solid $dark-grey;
+          border-radius: 50px;
+          cursor: pointer;
+          padding: 0.9rem 2rem;
           transition: all 0.2s ease-in-out;
+  
+          &:hover {
+            background-color: $accent-blue;
+            border-color: $accent-blue;
+            color: $white;
+            transition: all 0.2s ease-in-out;
+          }
         }
+
       }
 
     }

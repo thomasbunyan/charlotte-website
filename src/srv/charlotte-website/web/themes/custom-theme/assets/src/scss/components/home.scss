@@ -1,5 +1,4 @@
 .front-page {
-  font-family: 'Open Sans', sans-serif;
 
   .gallery {
     width: 90%;
@@ -17,7 +16,9 @@
       justify-content: flex-start;
       align-items: center;
       overflow-x: scroll;
-      margin-bottom: 0.5rem;
+      padding: 0 0.5rem;
+      box-sizing: border-box;
+      margin: 0 0 0.5rem 0;
 
       a {
         color: $black; 
@@ -66,16 +67,15 @@
         -webkit-column-width: $post-width;
         -moz-column-width: $post-width;
         column-width: $post-width;
-  
-        column-fill:balance;
         
         .gallery-post {
-          display: inline-block;
           width: 100%;
           margin-bottom: $post-margin - 4px;
   
-          img {
-            width: 100%;
+          a {
+            img {
+              width: 100%;
+            }
           }
         }
   
@@ -101,6 +101,13 @@
 
     }
 
+    
+  }
+
+  @media all and (max-width: 768px) {
+    .gallery {
+      width: 100%;
+    }
   }
 
 }

@@ -13,7 +13,6 @@
       get_template_part( 'template-parts/content/content-contact' );
 
     } else {
-
       while ( have_posts() ) :
         the_post();
       endwhile;

@@ -24,7 +24,11 @@
       
 
       <?php
-        $categories = get_categories();
+        $categories = get_categories(array(
+          'orderby'=>'name',
+          'order'=>'ASC',
+          'exclude'=>array(get_cat_ID('featured'))
+        ));
         foreach($categories as $category) {
           echo 
           '<a href=\'' . get_site_url() . '?category=' . strtolower($category->name) . '\'>
@@ -41,12 +45,14 @@
     <div class="body">
 
       <?php
+        $cat = $cat == "" ? "featured" : $cat;
         $cat_id = get_cat_ID($cat);
         if($cat == 'all' || $cat_id != 0) {
           $posts = get_posts(array(
+            'numberposts' => -1,
             'category' => $cat_id
           ));
-          
+
           // Testing
           // $posts = array_fill(0, 10, "");
 
@@ -60,11 +66,11 @@
               $post_url = get_permalink($post->ID);
 
               echo "
-                <a href='$post_url'>
-                  <div class='gallery-post'>
+                <div class='gallery-post'>
+                  <a href='$post_url'>
                     <img src='$img_src' alt='$img_alt'/>
-                  </div>
-                </a>
+                  </a>
+                </div>
               ";
 
             }

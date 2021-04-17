@@ -16,11 +16,11 @@
 
       <div class="container left">
         <h2>
-          <a href=<?php echo get_permalink(get_page_by_path('home')->ID) ?>>Charlotte Bunyan</a>
+          <a href=<?php echo get_site_url() ?>>Charlotte Bunyan</a>
         </h2>
       </div>
 
-      <div class="container center"><p>© 2021. All rights reserved.</p></div>
+      <div class="container center"><p>© <?php echo date("Y"); ?>. All rights reserved.</p></div>
 
       <div class="container right">
 

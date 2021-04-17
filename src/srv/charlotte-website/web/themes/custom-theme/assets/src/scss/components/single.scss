@@ -1,0 +1,43 @@
+.post-page {
+  font-family: 'Open Sans', sans-serif;
+
+  .post-wrapper {
+
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 20vh;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-height: 90vh;
+    }
+
+    h1 {
+      width: 100%;
+      margin: 5vh 0 1vh 0;
+      font-size: 1.75rem;
+      font-weight: 900;
+    }
+
+    p {
+      line-height: 1.5rem;
+      color: $not-black;
+      font-weight: 500;
+    }
+
+    small {
+      width: 100%;
+      font-size: 0.85rem;
+      font-weight: 900;
+      margin: 5vh 0 0 0;
+    }
+
+  }
+
+}

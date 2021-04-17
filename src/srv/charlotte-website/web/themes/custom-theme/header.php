@@ -11,7 +11,7 @@
 
     <header class="noselect">
 
-      <a href=<?php echo get_permalink(get_page_by_path('home')->ID) ?> >
+      <a href=<?php echo get_site_url() ?> >
         <h1>Charlotte Bunyan</h1>
         <h2>Artist & Illustrator</h2>
       </a>
@@ -21,6 +21,9 @@
           $pages = get_pages(array(
             'sort_order' => 'DESC',
           ));
+
+          echo "<a href=" . get_site_url() . ">HOME</a>";
+
           foreach($pages as $page) {
             echo '<a href=' . get_page_link(($page->ID)) . '>' . strtoupper($page->post_title) . '</a>';
           }

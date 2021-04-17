@@ -2,8 +2,8 @@
   font-family: 'Open Sans', sans-serif;
 
   .gallery {
-    width: 80%;
-    height: 1000px;
+    width: 90%;
+    max-width: 1080px;
     margin: auto;
     margin-bottom: 5rem;
     display: flex;
@@ -43,9 +43,62 @@
     }
 
     .body {
-
-      background-color: rgb(247, 247, 247);
       flex-grow: 1;
+      width: 100%;
+
+      .gallery-wrapper {
+  
+        $post-margin: 15px;
+        $post-width: 300px;
+        
+        -webkit-column-count: auto;
+        -moz-column-count: auto;
+        column-count: auto;
+          
+        -webkit-column-gap: $post-margin;
+        -moz-column-gap: $post-margin;
+        column-gap: $post-margin;
+  
+        -webkit-column-fill: balance;
+        -moz-column-fill: balance;
+        column-fill: balance;
+  
+        -webkit-column-width: $post-width;
+        -moz-column-width: $post-width;
+        column-width: $post-width;
+  
+        column-fill:balance;
+        
+        .gallery-post {
+          display: inline-block;
+          width: 100%;
+          margin-bottom: $post-margin - 4px;
+  
+          img {
+            width: 100%;
+          }
+        }
+  
+      }
+
+      .no-posts {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 5vh 0;
+
+        img {
+          height: 300px;
+        }
+
+        p {
+          font-size: 1.5rem;
+          color: $dark-grey;
+        }
+      }
+
     }
 
   }

@@ -21,6 +21,7 @@
           Featured
         </div>
       </a>
+      
 
       <?php
         $categories = get_categories();
@@ -45,12 +46,38 @@
           $posts = get_posts(array(
             'category' => $cat_id
           ));
-          foreach($posts as $post) {
-            echo $post->post_title;
+          
+          // Testing
+          // $posts = array_fill(0, 10, "");
+
+          if(!empty($posts)) {
+
+            echo '<div class="gallery-wrapper">';
+
+            foreach($posts as $index=>$post) {
+              $img_src = 'https://picsum.photos/500/' . rand(200, 1000);
+              $img_alt = "post_image_$index";
+              $post_url = get_permalink($post->ID);
+
+              echo "
+                <a href='$post_url'>
+                  <div class='gallery-post'>
+                    <img src='$img_src' alt='$img_alt'/>
+                  </div>
+                </a>
+              ";
+
+            }
+
+            echo '</div>';
+
+          } else {
+            get_template_part('template-parts/gallery/gallery-empty');
           }
         } elseif ($cat_id == 0) {
-          // Redirect to home.
+          get_template_part('template-parts/gallery/gallery-empty');
         }
+
       ?>
 
     </div>

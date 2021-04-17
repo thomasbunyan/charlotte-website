@@ -23,3 +23,9 @@ function load_javascript() {
   wp_enqueue_script('main');
 }
 add_action('wp_enqueue_scripts', 'load_javascript');
+
+function themeslug_query_vars( $qvars ) {
+  $qvars[] = 'category';
+  return $qvars;
+}
+add_filter( 'query_vars', 'themeslug_query_vars' );

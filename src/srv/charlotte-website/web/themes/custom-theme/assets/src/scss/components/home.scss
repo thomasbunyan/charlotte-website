@@ -1,0 +1,53 @@
+.front-page {
+  font-family: 'Open Sans', sans-serif;
+
+  .gallery {
+    width: 80%;
+    height: 1000px;
+    margin: auto;
+    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+
+    .header {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      overflow-x: scroll;
+      margin-bottom: 0.5rem;
+
+      a {
+        color: $black; 
+        margin-right: 0.5rem;
+
+        .header-item {
+          display: inline-block;
+          padding: 0.4rem 1rem;
+          border: 1px solid $dark-grey;
+          border-radius: 50px;
+          background-color: white;
+          font-size: 0.9rem;
+          cursor: pointer;
+  
+          &[active] {
+            background-color: $accent-blue;
+            border-color: $accent-blue;
+            color: $white;
+          }
+        }
+
+      }
+    }
+
+    .body {
+
+      background-color: rgb(247, 247, 247);
+      flex-grow: 1;
+    }
+
+  }
+
+}

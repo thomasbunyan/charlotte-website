@@ -8,16 +8,16 @@
 
   <div class="gallery">
 
-    <div class="header hide-scroll">
+    <div class="header hide-scroll noselect">
 
       <a href=<?php echo get_site_url() . "?category=all"?>>
-        <div class="header-item noselect" <?php echo $cat == 'all' ? 'active' : ''; ?>>
+        <div class="header-item" <?php echo $cat == 'all' ? 'active' : ''; ?>>
           All
         </div>
       </a>
 
       <a href=<?php echo get_site_url()?> >
-        <div class="header-item noselect" <?php echo $cat == '' ? 'active' : ''; ?>>
+        <div class="header-item" <?php echo $cat == '' ? 'active' : ''; ?>>
           Featured
         </div>
       </a>
@@ -29,16 +29,19 @@
           'order'=>'ASC',
           'exclude'=>array(get_cat_ID('featured'))
         ));
-        foreach($categories as $category) {
-          echo 
-          '<a href=\'' . get_site_url() . '?category=' . strtolower($category->name) . '\'>
-            <div class="header-item noselect" '. ($cat == strtolower($category->name) ? 'active' : '') . '>'
-              . $category->name .
-            '</div>
-          </a>';
-        }
-        
+        foreach($categories as $category):
+          $cat_name = $category->name;
+          $url = get_site_url() . '?category=' . strtolower($cat_name);
+          $active = $cat == strtolower($cat_name) ? 'active' : '';
       ?>
+
+          <a href=<?php echo $url ?>>
+            <div class="header-item" <?php echo $active ?>>
+              <?php echo $cat_name ?>
+            </div>
+          </a>
+
+      <?php endforeach; ?>
 
     </div>
 
@@ -52,7 +55,7 @@
             'numberposts' => -1,
             'category' => $cat_id
           ));
-          
+
           if(!empty($posts)) {
 
             echo '<div class="gallery-wrapper">';

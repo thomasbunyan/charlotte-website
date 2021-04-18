@@ -65,7 +65,7 @@
 
   .main-area {
     width: 90%;
-    max-width: 768px;
+    max-width: 800px;
     margin: 20vh auto;
     display: flex;
     flex-direction: column;
@@ -88,7 +88,7 @@
 
       .spacer {
         flex-grow: 1;
-        max-width: 10rem;
+        max-width: 20rem;
         min-width: 1rem;
         height: 100%;
       }
@@ -99,7 +99,7 @@
         }
 
         p {
-          max-width: 15rem;
+          max-width: 20rem;
           font-size: 0.9rem;
         }
       }
@@ -136,6 +136,10 @@
           margin: 0.5rem 1rem;
         }
       }
+    }
+
+    .main-area {
+      margin: 10vh auto;
     }
   }
 

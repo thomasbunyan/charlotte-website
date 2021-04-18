@@ -1,0 +1,113 @@
+.front-page {
+
+  .gallery {
+    width: 90%;
+    max-width: 1080px;
+    margin: auto;
+    margin-bottom: 15vh;
+    display: flex;
+    flex-direction: column;
+
+    .header {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      overflow-x: scroll;
+      padding: 0 0.5rem;
+      box-sizing: border-box;
+      margin: 0 0 0.5rem 0;
+
+      a {
+        color: $black; 
+        margin-right: 0.5rem;
+
+        .header-item {
+          display: inline-block;
+          padding: 0.4rem 1rem;
+          border: 1px solid $dark-grey;
+          border-radius: 50px;
+          background-color: white;
+          font-size: 0.9rem;
+          cursor: pointer;
+  
+          &[active] {
+            background-color: $accent-blue;
+            border-color: $accent-blue;
+            color: $white;
+          }
+        }
+
+      }
+    }
+
+    .body {
+      flex-grow: 1;
+      width: 100%;
+
+      .gallery-wrapper {
+  
+        $post-margin: 15px;
+        $post-width: 300px;
+        
+        -webkit-column-count: auto;
+        -moz-column-count: auto;
+        column-count: auto;
+          
+        -webkit-column-gap: $post-margin;
+        -moz-column-gap: $post-margin;
+        column-gap: $post-margin;
+  
+        -webkit-column-fill: balance;
+        -moz-column-fill: balance;
+        column-fill: balance;
+  
+        -webkit-column-width: $post-width;
+        -moz-column-width: $post-width;
+        column-width: $post-width;
+        
+        .gallery-post {
+          width: 100%;
+          margin-bottom: $post-margin - 4px;
+  
+          a {
+            img {
+              width: 100%;
+            }
+          }
+        }
+  
+      }
+
+      .no-posts {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 5vh 0;
+
+        img {
+          height: 300px;
+        }
+
+        p {
+          font-size: 1.5rem;
+          color: $dark-grey;
+        }
+      }
+
+    }
+
+    
+  }
+
+  @media all and (max-width: 600px) {
+    .gallery {
+      width: 100%;
+    }
+  }
+
+}

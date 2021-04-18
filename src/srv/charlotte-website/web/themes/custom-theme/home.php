@@ -1,90 +1,95 @@
-<!-- Posts page -->
-
 <?php
-  function cat_list($categories){
-    $val=array_map(function($x) { 
-      return $x->slug;
-    }, $categories);
-    return implode(',', $val);
-  }
+  $cat = get_query_var('category');
 ?>
 
 <?php get_header();?>
 
-  <div class="break-line"></div>
+<div class="front-page">
 
-	<div class='gallery-page'>
+  <div class="gallery">
 
-	  <div class="title">
-      <h1>
-        Gallery
-      </h1>
-    </div>
+    <div class="header hide-scroll noselect">
 
-    <div class="break-line"></div>
-    
-    <div class='gallery'>
-  
-      <div class='gallery-nav-wrapper'>
-        <div class='gallery-nav hide-scroll'>
-        
-          <?php
-            $categories = get_categories();
-            echo '<div class=gallery-cat-button data-category=all active>All</div>';
-            foreach($categories as $category) {
-              echo '<div class=gallery-cat-button data-category=' . $category->slug . '>'
-                . $category->name
-                . '</div>';
-              
-            }
-          ?>
-  
-    
+      <a href=<?php echo get_site_url() . "?category=all"?>>
+        <div class="header-item" <?php echo $cat == 'all' ? 'active' : ''; ?>>
+          All
         </div>
-        
-        <div class="more-arrow">
-          <i class="fas fa-long-arrow-alt-right"></i>
-        </div>
-      </div>
-  
-      <div class='gallery-body'>
-        
-        <?php if (have_posts()) : while ( have_posts() ) : the_post();  ?>
-  
-          <div class='post' categories=<?php echo cat_list(get_the_category()); ?>>
-            
-            <a href=<?php the_permalink(); ?> >
-            
-              <img src=<?php the_field('image'); ?> />
-          
-            </a>
-  
-          </div>
+      </a>
 
-          <!-- Can remove the below -->
-          <div class='post' categories=<?php echo cat_list(get_the_category()); ?>>
-            <a href=<?php the_permalink(); ?> >
-              <img src=<?php the_field('image'); ?> />
-            </a>
-          </div>
-          <div class='post' categories=<?php echo cat_list(get_the_category()); ?>>
-            <a href=<?php the_permalink(); ?> >
-              <img src=<?php the_field('image'); ?> />
-            </a>
-          </div>
-          <div class='post' categories=<?php echo cat_list(get_the_category()); ?>>
-            <a href=<?php the_permalink(); ?> >
-              <img src=<?php the_field('image'); ?> />
-            </a>
-          </div>
-          <!--  -->
-  
-        <?php endwhile; endif;?>
+      <a href=<?php echo get_site_url()?> >
+        <div class="header-item" <?php echo $cat == '' ? 'active' : ''; ?>>
+          Featured
+        </div>
+      </a>
       
-      </div>
+
+      <?php
+        $categories = get_categories(array(
+          'orderby'=>'name',
+          'order'=>'ASC',
+          'exclude'=>array(get_cat_ID('featured'))
+        ));
+        foreach($categories as $category):
+          $cat_name = $category->name;
+          $url = get_site_url() . '?category=' . strtolower($cat_name);
+          $active = $cat == strtolower($cat_name) ? 'active' : '';
+      ?>
+
+          <a href=<?php echo $url ?>>
+            <div class="header-item" <?php echo $active ?>>
+              <?php echo $cat_name ?>
+            </div>
+          </a>
+
+      <?php endforeach; ?>
 
     </div>
 
-	</div>
+    <div class="body">
+
+      <?php
+        $cat = $cat == "" ? "featured" : $cat;
+        $cat_id = get_cat_ID($cat);
+        if($cat == 'all' || $cat_id != 0) {
+          $posts = get_posts(array(
+            'numberposts' => -1,
+            'category' => $cat_id
+          ));
+
+          if(!empty($posts)) {
+
+            echo '<div class="gallery-wrapper">';
+
+            foreach($posts as $index=>$post) {
+              $img_src = get_field("image");
+              $img_alt = "post_image_$index";
+              $post_url = get_permalink($post->ID);
+
+              echo "
+                <div class='gallery-post'>
+                  <a href='$post_url'>
+                    <img src='$img_src' alt='$img_alt'/>
+                  </a>
+                </div>
+              ";
+
+            }
+
+            echo '</div>';
+
+          } else {
+            get_template_part('template-parts/gallery/gallery-empty');
+          }
+        } elseif ($cat_id == 0) {
+          get_template_part('template-parts/gallery/gallery-empty');
+        }
+
+      ?>
+
+    </div>
+
+  </div>
+	
+</div>
 
 <?php get_footer();?>

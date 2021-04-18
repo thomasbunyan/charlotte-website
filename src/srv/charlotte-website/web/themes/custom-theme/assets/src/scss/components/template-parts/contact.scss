@@ -1,0 +1,28 @@
+.contact-page{
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+  padding: 10vh 0 0 0;
+  margin: 0 0 30vh 0;
+
+  i {
+    font-size: 5rem;
+  }
+
+  p {
+    width: 80%;
+    min-width: 300px;
+    max-width: 450px;
+    font-size: 1.1rem;
+    margin: 1rem 0 0 0;
+  }
+
+  h1 {
+    margin: 3rem 0 0 0;
+    font-size: clamp(1.5rem, 5vw, 3.5rem);
+  }
+
+}

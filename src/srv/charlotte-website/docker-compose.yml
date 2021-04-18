@@ -14,7 +14,7 @@ services:
 
   wordpress:
     container_name: ${APP_NAME}-wordpress
-    image: wordpress:5.7.0
+    image: wordpress:5.7.1
     depends_on:
       - db
     volumes:

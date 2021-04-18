@@ -1,0 +1,46 @@
+header {
+  width: 100%;
+  padding: 4rem 0 2rem 0;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: $black;
+    display: inline-block;
+
+    h1 {
+      font-size: 32px;
+    }
+  
+    h2 {
+      font-size: 20px;
+      color: $dark-grey;
+      margin: 0.3rem 0 0 0;
+    }
+  }
+
+  nav {
+    margin: 7vh auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 400px;
+
+    a {
+      text-decoration: none;
+      color: $black;
+
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @media all and (max-width: 1080px) {
+    nav {
+      margin: 5vh auto 3vh auto;
+    }
+  }
+}

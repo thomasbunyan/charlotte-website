@@ -11,11 +11,11 @@
       </div>
 
       <div class="right">
-        <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula tellus nisi.</h1>
+        <h1><?php the_field("title"); ?></h1>
   
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula tellus nisi.</p>
+        <p><?php the_field("tagline"); ?></p>
   
-        <a href=<?php echo get_permalink(get_page_by_path('home')->ID) ?>>
+        <a href=<?php echo get_site_url() ?>>
           <div class="work-button">
             MY WORK
           </div>

@@ -2,9 +2,9 @@
 
   <footer class="noselect">
 
-    <h1>These. Are. Words.</h1>
+    <h1><?php echo get_field("footer_title", 10); ?></h1>
 
-    <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae lacinia ante. Donec eget interdum nulla, id rutrum lectus.</p>
+    <p class="subtitle"><?php echo get_field("footer_subtitle", 10); ?></p>
 
     <div class="contact-button">
       <a href=<?php echo get_permalink(get_page_by_path('contact')->ID) ?>>Contact</a>
@@ -26,9 +26,9 @@
 
         <div class="socials">
   
-          <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" target="_blank"><i class="far fa-envelope"></i></a>
+          <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href=<?php echo get_permalink(get_page_by_path('contact')->ID) ?>><i class="far fa-envelope"></i></a>
   
         </div>
 

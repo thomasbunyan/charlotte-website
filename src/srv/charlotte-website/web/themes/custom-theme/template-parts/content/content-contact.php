@@ -6,9 +6,9 @@
 
     <i class="far fa-envelope"></i>
 
-    <p>I am always looking for new projects and creative opportunities, so feel free to contact me at</p>
+    <p><?php the_field("tagline"); ?></p>
 
-    <h1>charlotte.bunyan3@gmail.com</h1>
+    <h1><?php the_field("email"); ?></h1>
 
   </div>
 

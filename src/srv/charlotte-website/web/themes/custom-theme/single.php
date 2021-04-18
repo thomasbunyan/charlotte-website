@@ -4,11 +4,12 @@
 
 <div class="post-page">
   
+
   <div class="post-wrapper">
-      <img src=<?php the_field("image"); ?> >
-      <h1><?php get_field("title"); ?></h1>
-      <p><?php get_field("description"); ?></p>
-      <small><?php get_field("date"); ?></small>
+      <img src=<?php echo get_field("image"); ?> >
+      <h1><?php echo get_field("title"); ?></h1>
+      <p><?php echo get_field("description"); ?></p>
+      <small><?php echo get_field("date"); ?></small>
     </div>
     
   </div>

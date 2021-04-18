@@ -52,16 +52,12 @@
             'numberposts' => -1,
             'category' => $cat_id
           ));
-
-          // Testing
-          // $posts = array_fill(0, 10, "");
-
+          
           if(!empty($posts)) {
 
             echo '<div class="gallery-wrapper">';
 
             foreach($posts as $index=>$post) {
-              // $img_src = 'https://picsum.photos/500/' . rand(200, 1000);
               $img_src = get_field("image");
               $img_alt = "post_image_$index";
               $post_url = get_permalink($post->ID);

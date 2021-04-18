@@ -7,13 +7,13 @@
     <div class="top-area">
     
       <div class="image">
-        <img src="https://i.picsum.photos/id/912/800/530.jpg?hmac=hMlnsZ9BV3tLtQj2PbqjledK9NaN6w3nMIxpxH9XYbQ" />
+        <img src=<?php echo get_field("banner_image"); ?> />
       </div>
 
       <div class="right">
-        <h1><?php the_field("title"); ?></h1>
+        <h1><?php echo get_field("title"); ?></h1>
   
-        <p><?php the_field("tagline"); ?></p>
+        <p><?php echo get_field("tagline"); ?></p>
   
         <a href=<?php echo get_site_url() ?>>
           <div class="work-button">

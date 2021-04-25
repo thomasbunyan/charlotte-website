@@ -1,0 +1,51 @@
+resources:
+- type: compute.v1.instanceGroupManager
+  name: charlotte-website-mig
+  properties:
+    name: charlotte-website-mig
+    description: MiG for Charlotte's website
+    zone: us-east1-b
+    instanceTemplate: $(ref.charlotte-website-instance-template.selfLink)
+    baseInstanceName: charlotte-website
+    targetSize: 1
+- type: compute.v1.instanceTemplate
+  name: charlotte-website-instance-template
+  properties:
+    name: charlotte-website-instance-template
+    description: Instance for Charlotte's website
+    properties:
+      zone: us-east1-b
+      machineType: f1-micro
+      disks:
+      - deviceName: boot
+        type: PERSISTENT
+        boot: true
+        autoDelete: true
+        initializeParams:
+          diskName: charlotte-website-disk
+          sourceImage: global/images/family/charlotte-website
+          diskSizeGb: 30
+          diskType: pd-standard
+      networkInterfaces:
+      - network: global/networks/default
+        accessConfigs:
+          - name: External NAT
+            type: ONE_TO_ONE_NAT
+            natIP: $(ref.charlotte-website-address.address)
+- type: dns.v1.managedZone
+  name: charlotte-website-managed-zone
+  properties:
+    name: charlotte-website-managed-zone
+    description: Managed Zone for Charlotte's website
+    dnsName: "charlottebunyan.com."
+    dnssecConfig:
+      state: "off"
+    visibility: public
+- type: compute.v1.address
+  name: charlotte-website-address
+  properties:
+    name: charlotte-website-address
+    description: A static IP address for Charlotte's website
+    region: us-east1
+    networkTier: PREMIUM
+    addressType: EXTERNAL

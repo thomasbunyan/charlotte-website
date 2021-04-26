@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Unpack and remove
-tar xzf bundle.tar.gz
+tar xzf app.tar.gz
 rm -f bundle.tar.gz
 
 # Install src
@@ -13,6 +13,8 @@ sudo chmod 755 /usr/local/bin/wordpress-restore
 
 # Refresh nginx conf
 sudo systemctl reload nginx
+# 
 
 # Start docker
-cd /srv/charlotte-website/ && docker-compose restart
+sudo systemctl start nginx
+(cd /srv/charlotte-website/ && docker-compose up)

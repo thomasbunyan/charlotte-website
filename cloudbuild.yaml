@@ -5,7 +5,8 @@ steps:
   args:
   - -c
   - |
-    make
+  - make
+  - ENV=${_ENV}
 
 - name: 'gcr.io/$PROJECT_ID/packer'
   args:

@@ -34,7 +34,7 @@ node_modules/
 # Local History for Visual Studio Code
 .history/
 
-.env
+*.env
 
 # backups
 backup*/

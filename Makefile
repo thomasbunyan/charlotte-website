@@ -1,9 +1,9 @@
 all: package
 
-package:
-	rm -f bundle.tar.gz src.tar
-	cd src && tar cf ../src.tar .
-	tar czf bundle.tar.gz src.tar deploy
-	rm -f src.tar
+package: clean
+	tar -czf app.tar.gz -C src .
 
-.PHONY: all package start stop clean
+clean:
+	rm -f app.tar.gz
+
+.PHONY: all clean package

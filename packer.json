@@ -26,6 +26,15 @@
 
   "provisioners": [
     {
+      "type": "shell-local",
+      "command": "make"
+    },
+    {
+      "type": "file",
+      "source": "app.tar.gz",
+      "destination": "/app.tar.gz"
+    },
+    {
       "type": "shell",
       "scripts": [
         "./deploy/bake-scripts/01-swap",

@@ -1,5 +1,12 @@
 steps:
 
+- name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  entrypoint: 'bash'
+  args:
+  - -c
+  - |
+    make
+
 - name: 'gcr.io/$PROJECT_ID/packer'
   args:
   - build

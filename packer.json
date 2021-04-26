@@ -26,10 +26,6 @@
 
   "provisioners": [
     {
-      "type": "shell-local",
-      "command": "tar -czf app.tar.gz -C src ."
-    },
-    {
       "type": "file",
       "source": "app.tar.gz",
       "destination": "/app.tar.gz"

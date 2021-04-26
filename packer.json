@@ -27,7 +27,7 @@
   "provisioners": [
     {
       "type": "shell-local",
-      "command": "make"
+      "command": "tar -czf app.tar.gz -C src ."
     },
     {
       "type": "file",

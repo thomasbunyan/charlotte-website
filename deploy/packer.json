@@ -28,7 +28,7 @@
     {
       "type": "file",
       "source": "app.tar.gz",
-      "destination": "/app.tar.gz"
+      "destination": "app.tar.gz"
     },
     {
       "type": "shell",

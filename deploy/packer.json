@@ -35,7 +35,8 @@
       "scripts": [
         "./deploy/bake-scripts/01-swap",
         "./deploy/bake-scripts/02-install",
-        "./deploy/bake-scripts/03-docker"
+        "./deploy/bake-scripts/03-docker",
+        "./deploy/bake-scripts/04-unpack"
       ]
     }
   ]

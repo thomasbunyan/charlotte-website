@@ -1,10 +1,7 @@
 steps:
 
-- name: gcr.io/google.com/cloudsdktool/cloud-sdk
-  entrypoint: 'bash'
+- name: 'bash'
   args:
-  - -c
-  - |
   - make
   - ENV=${_ENV}
 

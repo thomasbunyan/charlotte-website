@@ -33,9 +33,9 @@
     {
       "type": "shell",
       "scripts": [
-        "./bake-scripts/01-swap",
-        "./bake-scripts/02-docker",
-        "./bake-scripts/03-install"
+        "./deploy/bake-scripts/01-swap",
+        "./deploy/bake-scripts/02-docker",
+        "./deploy/bake-scripts/03-install"
       ]
     }
   ]

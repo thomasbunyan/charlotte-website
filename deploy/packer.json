@@ -28,7 +28,7 @@
     {
       "type": "file",
       "source": "app.tar.gz",
-      "destination": "app.tar.gz"
+      "destination": "/tmp/app.tar.gz"
     },
     {
       "type": "shell",
@@ -36,8 +36,7 @@
         "./deploy/bake-scripts/01-swap",
         "./deploy/bake-scripts/02-install",
         "./deploy/bake-scripts/03-docker",
-        "./deploy/bake-scripts/04-unpack",
-        "./deploy/bake-scripts/05-nginx"
+        "./deploy/bake-scripts/04-unpack"
       ]
     }
   ]

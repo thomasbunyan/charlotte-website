@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Unpack tar
-tar xzf /tmp/app.tar.gz
+sudo tar xzf /tmp/app.tar.gz -C /
 
 # Update permissions
 # sudo chmod 755 /usr/local/bin/wordpress-backup

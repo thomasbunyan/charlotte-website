@@ -4,5 +4,5 @@
 sudo tar xzf /tmp/app.tar.gz -C /
 
 # Update permissions
-# sudo chmod 755 /usr/local/bin/wordpress-backup
-# sudo chmod 755 /usr/local/bin/wordpress-restore
+sudo chmod 755 /usr/local/bin/wordpress-backup
+sudo chmod 755 /usr/local/bin/wordpress-restore

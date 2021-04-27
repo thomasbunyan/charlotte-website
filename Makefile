@@ -17,7 +17,7 @@ build:
 	NONCE_SALT=$(NONCE_SALT) \
 	envsubst < .env.template > .env
 
-package:
+package: build
 	tar -czf app.tar.gz -C src .
 
 clean:

@@ -1,34 +1,33 @@
 steps:
 
-- name: ubuntu
-  entrypoint: 'bash'
-  args:
-  - -c
-  - |
-    make ENV=${_ENV}
+- name: 'gcr.io/$PROJECT_ID/charlotte-website-build'
+  args: ['make', 'ENV=${_ENV}']
+    
+# - name: 'gcr.io/$PROJECT_ID/packer'
+#   args:
+#   - build
+#   - -var
+#   - project_id=$PROJECT_ID
+#   - -var
+#   - machine_type=f1-micro
+#   - -var
+#   - image_family=ubuntu-1604-lts
+#   - -var
+#   - region=us-east1
+#   - -var
+#   - zone=us-east1-b
+#   - ./deploy/packer.json
 
-- name: 'gcr.io/$PROJECT_ID/packer'
-  args:
-  - build
-  - -var
-  - project_id=$PROJECT_ID
-  - -var
-  - machine_type=f1-micro
-  - -var
-  - image_family=ubuntu-1604-lts
-  - -var
-  - region=us-east1
-  - -var
-  - zone=us-east1-b
-  - ./deploy/packer.json
+# - name: 'gcr.io/cloud-builders/gcloud'
+#   args:
+#   - 'compute'
+#   - 'instance-groups'
+#   - 'managed'
+#   - 'rolling-action'
+#   - 'replace'
+#   - 'charlotte-website-mig'
+#   - '--max-unavailable=100%'
+#   - '--zone=us-east1-b'
 
-- name: 'gcr.io/cloud-builders/gcloud'
-  args:
-  - 'compute'
-  - 'instance-groups'
-  - 'managed'
-  - 'rolling-action'
-  - 'replace'
-  - 'charlotte-website-mig'
-  - '--max-unavailable=100%'
-  - '--zone=us-east1-b'
+images:
+- 'gcr.io/$PROJECT_ID/charlotte-website-build'

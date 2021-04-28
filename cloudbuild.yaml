@@ -1,7 +1,7 @@
 steps:
 
 - name: 'gcr.io/$PROJECT_ID/charlotte-website-build'
-  args: ['make', '-s', 'ENV="${_ENV}"', 'DB_NAME="${_DB_NAME}"', 'DB_ROOT_PASSWORD="${_DB_ROOT_PASSWORD}"', 'WP_HOME="${_WP_HOME}"', 'WP_TABLE_PREFIX="${_WP_TABLE_PREFIX}"', 'AUTH_KEY="${_AUTH_KEY}"', 'SECURE_AUTH_KEY="${_SECURE_AUTH_KEY}"', 'LOGGED_IN_KEY="${_LOGGED_IN_KEY}"', 'NONCE_KEY="${_NONCE_KEY}"', 'AUTH_SALT="${_AUTH_SALT}"', 'SECURE_AUTH_SALT="${_SECURE_AUTH_SALT}"', 'LOGGED_IN_SALT="${_LOGGED_IN_SALT}"', 'NONCE_SALT="${_NONCE_SALT}"']
+  args: ['make', '-s', 'ENV="${_ENV}"']
     
 - name: 'gcr.io/$PROJECT_ID/packer'
   args:

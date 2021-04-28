@@ -1,13 +1,26 @@
 #!/bin/bash
-# description: charlotte-website
-# processname: charlotte-website
+### BEGIN INIT INFO
+# Provides:          charlotte-website
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: charlotte-website
+# Description:       charlotte-website
+### END INIT INFO
+
 
 source /etc/init.d/functions
 
 
  start() {
     echo -n "Starting charlotte-website: "
-    # sudo touch /startupscriptworking.txt
+
+    sudo touch /startupscriptworking.txt
+    # sudo docker-compose up -f /srv/charlotte-website/
+    # restore backup
+    # sudo systemctl start nginx
+
     echo
 }
 

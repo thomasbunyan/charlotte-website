@@ -8,6 +8,7 @@ sudo tar xzf /tmp/app.tar.gz -C /
 sudo chmod 755 /usr/local/bin/wordpress-backup
 sudo chmod 755 /usr/local/bin/wordpress-restore
 
+
 # Add the service
 sudo chmod 755 /etc/init.d/charlotte-website 
 sudo chown root:root /etc/init.d/charlotte-website 

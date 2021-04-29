@@ -16,7 +16,6 @@ source /etc/init.d/functions
  start() {
     echo -n "Starting charlotte-website: "
 
-    sudo touch /startupscriptworking.txt
     # sudo docker-compose up -f /srv/charlotte-website/
     # restore backup
     # sudo systemctl start nginx

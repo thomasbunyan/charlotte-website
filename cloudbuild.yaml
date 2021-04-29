@@ -1,7 +1,7 @@
 steps:
 
 - name: 'gcr.io/$PROJECT_ID/charlotte-website-build'
-  args: ['make', '-s', 'ENV=${_ENV} DB_NAME=${_DB_NAME} DB_ROOT_PASSWORD=${_DB_ROOT_PASSWORD} WP_HOME={$WP_HOME}']
+  args: ['make', '-s', 'ENV=${_ENV} DB_NAME=${_DB_NAME} DB_ROOT_PASSWORD=${_DB_ROOT_PASSWORD} WP_HOME={$WP_HOME} AUTH_KEY={_AUTH_KEY}']
     
 - name: 'gcr.io/$PROJECT_ID/packer'
   args:

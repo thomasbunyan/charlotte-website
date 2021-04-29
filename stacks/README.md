@@ -4,3 +4,6 @@
 
 gcloud deployment-manager deployments update charlotte-website-deployment \
     --config charlotte-website.yaml
+
+gcloud deployment-manager deployments create charlotte-website-deployment \
+    --config charlotte-website.yaml

@@ -11,7 +11,7 @@ function backup() {
 
   # Generate backups from the volume
   echo "[$(date +%Y-%m-%d:%T)] Backup volume"
-  docker run --rm --volumes-from $WP_CONTAINER -v /tmp/charlotte-website/backup:/backup ubuntu tar cf /backup/wp_backup.tar /var/www/html
+  sudo docker run --rm --volumes-from $WP_CONTAINER -v /tmp/charlotte-website/backup:/backup ubuntu tar cf /backup/wp_backup.tar /var/www/html
 
   # Dump the DB
   # This needs to be executed as root
@@ -23,7 +23,7 @@ function backup() {
 
   # Ship the backups to external storage
   timestamp=$(date +%Y-%m-%d:%T)
-  cd /tmp/charlotte-website && gsutil cp backup.tar.gz gs://charlotte-website-backup/wordpress-backup-$timestamp.tar.gz
+  cd /tmp/charlotte-website && sudo gsutil cp backup.tar.gz gs://charlotte-website-backup/wordpress-backup-$timestamp.tar.gz
   echo "[$(date +%Y-%m-%d:%T)] Created backup: wordpress-backup-$timestamp.tar.gz"
 
   # Clean the backups

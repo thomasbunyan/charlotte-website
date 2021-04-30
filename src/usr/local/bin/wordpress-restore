@@ -6,6 +6,8 @@ DB_CONTAINER="charlotte-website-mariadb"
 function restore() {
   echo "[$(date +%Y-%m-%d:%T)] Restoring from last backup"
 
+  sudo mkdir -p /tmp/charlotte-website/backup-restore
+
   # Set backup to restore from
   if [[ -z "${BACKUP_FILE}" ]]; then
     file=$(sudo gsutil ls -l gs://charlotte-website-backup/ | head -n -1 | sort -k 2 -r | head -n 1 | tr -s " " | cut -d " " -f 4)
@@ -19,12 +21,14 @@ function restore() {
   sudo gsutil cp $file /tmp/charlotte-website/backup-restore.tar.gz
 
   # Unzip backup
-  sudo tar xzf backup-restore.tar.gz -C /tmp/charlotte-website/backup-restore
+  sudo tar xzf /tmp/charlotte-website/backup-restore.tar.gz -C /tmp/charlotte-website/backup-restore
 
   # Restore DB from dump
+  echo "[$(date +%Y-%m-%d:%T)] Restore DB"
   cat /tmp/charlotte-website/backup-restore/db_backup.sql | sudo docker exec -i $DB_CONTAINER /usr/bin/mysql -u root --password=$pw $db
 
   # Restart the containers
+  echo "[$(date +%Y-%m-%d:%T)] Restarting containers"
   cd /srv/charlotte-website && sudo docker-compose restart
 
   # Clean the restored backups

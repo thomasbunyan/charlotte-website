@@ -25,6 +25,7 @@ function backup() {
 
   # Clean the backups
   sudo rm -rf /tmp/charlotte-website/backup
+  sudo rm -rf /tmp/charlotte-website/backup.tar.gz
 
   echo "[$(date +%Y-%m-%d:%T)] Backup complete"
 }

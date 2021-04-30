@@ -23,7 +23,7 @@ build:
 	envsubst < backup.template > backup
 	rm ./src/etc/cron.d/backup.template
 
-package: build-env build-cron
+package: build
 	tar -czf app.tar.gz -C src .
 
 clean:

@@ -8,20 +8,18 @@ function restore() {
 
   # Set backup to restore from
   if [[ -z "${BACKUP_FILE}" ]]; then
-    file=$(gsutil ls -l gs://charlotte-website-backup/ | head -n -1 | sort -k 3 -r | head -n 1 | tr -s " " | cut -d " " -f 4)
+    file=$(sudo gsutil ls -l gs://charlotte-website-backup/ | head -n -1 | sort -k 2 -r | head -n 1 | tr -s " " | cut -d " " -f 4)
   else
     file="${BACKUP_FILE}"
   fi
   echo "[$(date +%Y-%m-%d:%T)] Found $file to restore from"
 
   # Obtain backup
+  echo "[$(date +%Y-%m-%d:%T)] Retrieving backup"
   sudo gsutil cp $file /tmp/charlotte-website/backup-restore.tar.gz
 
   # Unzip backup
-  cd /tmp/charlotte-website && sudo tar xzf backup-restore.tar.gz -C backup-restore
-
-  # Restore volume from backup
-  docker run --rm --volumes-from $WP_CONTAINER -v /tmp/charlotte-website/backup-restore:/backup ubuntu bash -c "cd /var/www/html && tar xf /backup/wp_backup.tar --strip 1"
+  sudo tar xzf backup-restore.tar.gz -C /tmp/charlotte-website/backup-restore
 
   # Restore DB from dump
   cat /tmp/charlotte-website/backup-restore/db_backup.sql | docker exec -i $DB_CONTAINER /usr/bin/mysql -u root --password=$pw $db

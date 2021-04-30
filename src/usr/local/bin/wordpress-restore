@@ -22,10 +22,10 @@ function restore() {
   sudo tar xzf backup-restore.tar.gz -C /tmp/charlotte-website/backup-restore
 
   # Restore DB from dump
-  cat /tmp/charlotte-website/backup-restore/db_backup.sql | docker exec -i $DB_CONTAINER /usr/bin/mysql -u root --password=$pw $db
+  cat /tmp/charlotte-website/backup-restore/db_backup.sql | sudo docker exec -i $DB_CONTAINER /usr/bin/mysql -u root --password=$pw $db
 
   # Restart the containers
-  cd /srv/charlotte-website && docker-compose restart
+  cd /srv/charlotte-website && sudo docker-compose restart
 
   # Clean the restored backups
   sudo rm -rf /tmp/charlotte-website/backup-restore

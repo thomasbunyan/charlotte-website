@@ -17,7 +17,7 @@ source /etc/init.d/functions
     echo -n "Starting charlotte-website: "
 
     cd /srv/charlotte-website/ && sudo docker-compose up -d
-    # wordpress-restore
+    # (source /srv/charlotte-website/.env && /usr/libexec/charlotte-website/charlotte-website restore)
     sudo rm -f /etc/nginx/sites-enabled/default
     sudo service nginx reload
 
@@ -27,7 +27,6 @@ source /etc/init.d/functions
 stop() {
     echo -n "Stopping charlotte-website: "
 
-    # wordpress-backup
     cd /srv/charlotte-website/ && sudo docker-compose stop
     
     echo

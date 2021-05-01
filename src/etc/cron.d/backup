@@ -1,0 +1,1 @@
+0 3 * * * root (source /srv/charlotte-website/.env && /usr/libexec/charlotte-website/charlotte-website backup)

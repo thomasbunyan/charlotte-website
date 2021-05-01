@@ -17,12 +17,6 @@ build:
 	NONCE_SALT="$(NONCE_SALT)" \
 	envsubst < .env.template > .env
 
-	cd ./src/etc/cron.d/ && \
-	DB="$(DB_NAME)" \
-	PW="$(DB_ROOT_PASSWORD)" \
-	envsubst < backup.template > backup
-	rm ./src/etc/cron.d/backup.template
-
 package: build
 	tar -czf app.tar.gz -C src .
 

@@ -1,6 +1,5 @@
 #!/bin/bash
 
-LOG_FILE="/var/log/wordpress/backup.log"
 WP_CONTAINER="charlotte-website-wordpress"
 DB_CONTAINER="charlotte-website-mariadb"
 

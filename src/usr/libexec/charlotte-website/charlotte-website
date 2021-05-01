@@ -1,11 +1,11 @@
 #!/bin/bash
 
 function backup() {
-  sudo /usr/local/bin/wordpress-backup -d $DB_NAME -p $DB_ROOT_PASSWORD >>/var/log/charlotte-website/backup.log 2>&1
+  sudo /usr/local/bin/wordpress-backup -d $DB_NAME -p $DB_ROOT_PASSWORD >> /var/log/charlotte-website/backup.log 2>&1
 }
 
 function restore() {
-  sudo /usr/local/bin/wordpress-restore -d $DB_NAME -p $DB_ROOT_PASSWORD >>/var/log/charlotte-website/backup.log 2>&1
+  sudo /usr/local/bin/wordpress-restore -d $DB_NAME -p $DB_ROOT_PASSWORD >> /var/log/charlotte-website/backup.log 2>&1
 }
 
 

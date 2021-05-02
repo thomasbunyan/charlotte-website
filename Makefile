@@ -15,7 +15,7 @@ build:
 	SECURE_AUTH_SALT="$(SECURE_AUTH_SALT)" \
 	LOGGED_IN_SALT="$(LOGGED_IN_SALT)" \
 	NONCE_SALT="$(NONCE_SALT)" \
-	envsubst < .env.template > .env \
+	envsubst < .env.template > .env && \
 	envsubst < .env.export.template > .env.export
 
 package: build
@@ -24,5 +24,6 @@ package: build
 clean:
 	rm -f app.tar.gz
 	rm -f ./src/srv/charlotte-website/.env
+	rm -f ./src/srv/charlotte-website/.env.export
 
 .PHONY: all clean build

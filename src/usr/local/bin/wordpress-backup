@@ -13,6 +13,10 @@ function backup() {
   echo "[$(date +%Y-%m-%d:%T)] Backing up DB"
   sudo -u root -H sh -c "sudo docker exec $DB_CONTAINER /usr/bin/mysqldump -u root --password=$pw $db > /tmp/charlotte-website/backup/db_backup.sql"
 
+  # Tarball the uploads
+  echo "[$(date +%Y-%m-%d:%T)] Bundling custom files"
+  sudo tar cf /tmp/charlotte-website/backup/uploads.tar -C /srv/charlotte-website/web/uploads/ .
+
   # gzip the backups
   cd /tmp/charlotte-website/backup && sudo tar czf ../backup.tar.gz .
 

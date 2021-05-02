@@ -27,6 +27,10 @@ function restore() {
   echo "[$(date +%Y-%m-%d:%T)] Restore DB"
   cat /tmp/charlotte-website/backup-restore/db_backup.sql | sudo docker exec -i $DB_CONTAINER /usr/bin/mysql -u root --password=$pw $db
 
+  # Restore uplaods
+  sudo mkdir -p /srv/charlotte-website/web/uploads
+  sudo tar xf /tmp/charlotte-website/backup-restore/uploads.tar -C /srv/charlotte-website/web/uploads/
+
   # Restart the containers
   echo "[$(date +%Y-%m-%d:%T)] Restarting containers"
   cd /srv/charlotte-website && sudo docker-compose restart

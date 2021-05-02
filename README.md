@@ -4,8 +4,7 @@
 Install to root
 
 
-nt@5ivk9u@g8KbatoW
-
+DCh#9^#o7GddmuwKZP
 
 
 h3. `build` example

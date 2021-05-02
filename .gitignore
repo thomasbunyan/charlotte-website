@@ -39,3 +39,6 @@ node_modules/
 
 # backups
 backup*/
+
+# Uploads
+uploads/

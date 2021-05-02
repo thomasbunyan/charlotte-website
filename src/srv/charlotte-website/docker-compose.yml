@@ -24,6 +24,7 @@ services:
       - ./config/env:/var/www/html/env
       - ./web/plugins:/var/www/html/wp-content/plugins
       - ./web/themes:/var/www/html/wp-content/themes
+      - ./web/uploads:/var/www/html/wp-content/uploads
     ports:
       - 8080:80
     restart: unless-stopped

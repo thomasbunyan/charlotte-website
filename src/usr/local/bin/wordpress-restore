@@ -25,7 +25,7 @@ function restore() {
 
   # Restore DB from dump
   echo "[$(date +%Y-%m-%d:%T)] Restore DB"
-  cat /tmp/charlotte-website/backup-restore/db_backup.sql | sudo docker exec -i $DB_CONTAINER /usr/bin/mysql -u root --password=$pw $db
+  cat /tmp/charlotte-website/backup-restore/db_backup.sql | sudo docker exec -i $DB_CONTAINER /usr/bin/mysql -u root --password="$pw" $db
 
   # Restore uplaods
   sudo mkdir -p /srv/charlotte-website/web/uploads

@@ -11,7 +11,7 @@ function backup() {
   # Dump the DB
   # This needs to be executed as root
   echo "[$(date +%Y-%m-%d:%T)] Backing up DB"
-  sudo -u root -H sh -c "sudo docker exec $DB_CONTAINER /usr/bin/mysqldump -u root --password=$pw $db > /tmp/charlotte-website/backup/db_backup.sql"
+  sudo -u root -H sh -c "sudo docker exec $DB_CONTAINER /usr/bin/mysqldump -u root --password='$pw' $db > /tmp/charlotte-website/backup/db_backup.sql"
 
   # Tarball the uploads
   echo "[$(date +%Y-%m-%d:%T)] Bundling custom files"

@@ -1,1 +1,3 @@
-0 3 * * * root (source /srv/charlotte-website/.env && /usr/libexec/charlotte-website/charlotte-website backup)
+# /etc/cron.d/backup: crontab entries for charlotte-website
+
+0 3 * * * root (. /srv/charlotte-website/.env.export && /usr/libexec/charlotte-website/charlotte-website backup) >/dev/null 2>&1

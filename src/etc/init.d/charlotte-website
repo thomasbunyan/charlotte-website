@@ -17,7 +17,9 @@ source /etc/init.d/functions
     echo -n "Starting charlotte-website: "
 
     cd /srv/charlotte-website/ && sudo docker-compose up -d
-    # (source /srv/charlotte-website/.env && /usr/libexec/charlotte-website/charlotte-website restore)
+
+    (. /srv/charlotte-website/.env.export && /usr/libexec/charlotte-website/charlotte-website restore)
+    
     sudo rm -f /etc/nginx/sites-enabled/default
     sudo service nginx reload
 

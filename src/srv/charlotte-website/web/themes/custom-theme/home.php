@@ -68,7 +68,7 @@
               echo "
                 <div class='gallery-post'>
                   <a href='$post_url'>
-                    <img src='$img_src' alt='$img_alt'/>
+                    <img src='$img_src' alt='$img_alt' loading=lazy />
                   </a>
                 </div>
               ";

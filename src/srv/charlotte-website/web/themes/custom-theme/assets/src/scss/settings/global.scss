@@ -1,7 +1,7 @@
-$background-pink: #EED6D6;
+$background-white: #f7f7f7;
 
 $white: #fff;
-$black: #000;
+$black: rgb(31, 31, 31);
 
 $light-grey: #dfdfdf;
 $dark-grey: #909090;
@@ -22,6 +22,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 body {
   font-family: 'Open Sans', sans-serif;
+  background-color: $background-white;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

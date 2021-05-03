@@ -31,9 +31,12 @@ header {
     a {
       text-decoration: none;
       color: $black;
+      border-bottom: 2px solid transparent;
+      transition: border ease-in-out 0.1s;
 
-      &:hover{
-        text-decoration: underline;
+      &:hover {
+        border-bottom: 2px solid $black;
+        transition: border ease-in-out 0.1s;
       }
     }
   }

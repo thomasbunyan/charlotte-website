@@ -31,8 +31,9 @@
         ));
         foreach($categories as $category):
           $cat_name = $category->name;
-          $url = get_site_url() . '?category=' . strtolower($cat_name);
-          $active = $cat == strtolower($cat_name) ? 'active' : '';
+          $cat_slug = $category->slug;
+          $url = get_site_url() . '?category=' . strtolower($cat_slug);
+          $active = $cat == $cat_slug ? 'active' : '';
       ?>
 
           <a href=<?php echo $url ?>>
@@ -49,7 +50,8 @@
 
       <?php
         $cat = $cat == "" ? "featured" : $cat;
-        $cat_id = get_cat_ID($cat);
+        $cat_obj = get_category_by_slug($cat);
+        $cat_id = $cat_obj->cat_ID;
         if($cat == 'all' || $cat_id != 0) {
           $posts = get_posts(array(
             'numberposts' => -1,

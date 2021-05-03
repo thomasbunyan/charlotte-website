@@ -3,7 +3,7 @@
 # Unpack tar
 sudo tar xzf /tmp/app.tar.gz -C /
 
-# Create log files
+# Create files/directories
 sudo mkdir -p /var/log/charlotte-website/ && sudo touch /var/log/charlotte-website/backup.log
 
 # Update permissions

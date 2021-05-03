@@ -26,8 +26,8 @@
 
         <div class="socials">
   
-          <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/charlie_portfolio/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/charlotte-bunyan-00721b210/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
           <a href=<?php echo get_permalink(get_page_by_path('contact')->ID) ?>><i class="far fa-envelope"></i></a>
   
         </div>

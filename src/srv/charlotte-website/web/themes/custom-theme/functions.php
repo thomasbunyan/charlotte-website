@@ -29,3 +29,5 @@ function themeslug_query_vars( $qvars ) {
   return $qvars;
 }
 add_filter( 'query_vars', 'themeslug_query_vars' );
+
+add_theme_support( 'title-tag' );

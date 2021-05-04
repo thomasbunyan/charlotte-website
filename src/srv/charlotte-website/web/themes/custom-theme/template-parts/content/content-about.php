@@ -4,7 +4,7 @@
 
   <div class="page-about">
 
-    <div class="top-area">
+    <div class="top-area callout-title animate__animated animate__fadeInUp animate__faster">
     
       <div class="image">
         <img src=<?php echo get_field("banner_image"); ?> />
@@ -17,7 +17,8 @@
   
         <a href=<?php echo get_site_url() ?>>
           <div class="work-button">
-            MY WORK
+            MY WORK 
+            <i class="fas fa-arrow-right"></i>
           </div>
         </a>
       </div>

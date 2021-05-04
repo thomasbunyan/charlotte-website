@@ -27,10 +27,11 @@
         .header-item {
           display: inline-block;
           padding: 0.4rem 1rem;
-          border: 1px solid $dark-grey;
+          border: 1px solid $black;
           border-radius: 50px;
           background-color: transparent;
           transition: all ease-in-out 0.1s;
+          transition-property: background-color, color, border;
           font-size: 0.9rem;
           cursor: pointer;
   
@@ -44,7 +45,6 @@
             background-color: $accent-blue;
             color: $white;
             border-color: transparent;
-            transition: all ease-in-out 0.1s;
           }
         }
 

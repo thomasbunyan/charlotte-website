@@ -7,6 +7,9 @@ function load_stylesheets() {
   wp_register_style('fontawesome', 'https://use.fontawesome.com/releases/v5.15.3/css/all.css', array(), false, 'all');
   wp_enqueue_style('fontawesome');
 
+  wp_register_style('animate', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css', array(), false, 'all');
+  wp_enqueue_style('animate');
+
   wp_register_style('style', get_template_directory_uri() . '/assets/public/css/style.min.css', array(), false, 'all');
   wp_enqueue_style('style');
 

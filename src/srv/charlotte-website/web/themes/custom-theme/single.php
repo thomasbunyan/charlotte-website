@@ -6,12 +6,12 @@
   
 
   <div class="post-wrapper">
-      <img src=<?php echo get_field("image"); ?> >
-      <h1><?php echo get_field("title"); ?></h1>
-      <p><?php echo get_field("description"); ?></p>
-      <small><?php echo get_field("date"); ?></small>
-    </div>
-    
+      <img src=<?php echo get_field("image"); ?> data-aos="zoom-in">
+      <h1 data-aos="fade-up"><?php echo get_field("title"); ?></h1>
+      <p data-aos="fade-up"><?php echo get_field("description"); ?></p>
+      <small data-aos="fade-up"><?php echo get_field("date"); ?></small>
   </div>
+    
+</div>
 
 <?php get_footer();?>

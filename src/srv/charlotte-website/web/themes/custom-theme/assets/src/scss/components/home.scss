@@ -33,6 +33,7 @@
           transition: all ease-in-out 0.1s;
           transition-property: background-color, color, border;
           font-size: 0.9rem;
+          white-space: nowrap;
           cursor: pointer;
   
           &[active] {

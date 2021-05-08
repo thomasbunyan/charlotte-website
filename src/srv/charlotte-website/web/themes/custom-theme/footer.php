@@ -1,6 +1,8 @@
 <?php wp_footer();?>
 
-  <footer class="noselect">
+<script>AOS.init();</script>
+
+  <footer class="noselect" data-aos="fade-up">
 
     <h1><?php echo get_field("footer_title", get_page_by_path('about')->ID); ?></h1>
 

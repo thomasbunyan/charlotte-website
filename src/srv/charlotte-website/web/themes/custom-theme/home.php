@@ -8,7 +8,7 @@
 
   <div class="gallery">
 
-    <div class="header hide-scroll noselect">
+    <div class="header hide-scroll noselect" data-aos="fade-right">
 
       <a href=<?php echo get_site_url() . "?category=all"?>>
         <div class="header-item" <?php echo $cat == 'all' ? 'active' : ''; ?>>
@@ -68,7 +68,7 @@
               $post_url = get_permalink($post->ID);
 
               echo "
-                <div class='gallery-post'>
+                <div class='gallery-post' data-aos='fade-up'>
                   <a href='$post_url'>
                     <img src='$img_src' alt='$img_alt' loading=lazy />
                   </a>

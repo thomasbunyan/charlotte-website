@@ -22,7 +22,14 @@
 
   h1 {
     margin: 3rem 0 0 0;
-    font-size: clamp(1.5rem, 5vw, 3.5rem);
+    font-size: clamp(1.25rem, 5vw, 3.5rem);
+    font-family: 'Roboto Mono';
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+
+    &:hover {
+      color: $accent-blue;
+    }
   }
 
 }

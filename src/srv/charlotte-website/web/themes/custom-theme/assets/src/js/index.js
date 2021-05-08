@@ -1,4 +1,5 @@
 import * as gallery from "./gallery";
+import * as contact from "./contact";
 
 $(() => {
   
@@ -15,5 +16,6 @@ $(() => {
   );
 
   gallery.setUp();
+  contact.setUp();
 
 });

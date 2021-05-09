@@ -13,6 +13,8 @@ const lazyLoad = () => {
     imgCreatedWithJS
       .on('load', () => {
         img.attr('src', img.attr('data-src'));
+        AOS.refresh();
       });
   });
+
 }

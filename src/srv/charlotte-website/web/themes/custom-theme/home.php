@@ -64,13 +64,14 @@
 
             foreach($posts as $index=>$post) {
               $img = get_field("image");
-              $img_src = $img[sizes][medium];
+              $img_src = $img[sizes][thumbnail];
+              $img_data_src = $img[sizes][medium_large];
               $img_alt = "post_image_$index";
               $post_url = get_permalink($post->ID);
               echo "
                 <div class='gallery-post' data-aos='fade-up'>
                   <a href='$post_url'>
-                    <img src='$img_src' alt='$img_alt' loading='lazy' />
+                    <img src='$img_src' data-src='$img_data_src' alt='$img_alt' loading='lazy' />
                   </a>
                 </div>
               ";

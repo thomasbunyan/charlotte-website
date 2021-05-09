@@ -10,6 +10,7 @@
 
     <h1 id="email" class="noselect" title="Click to copy">
       <?php the_field("email"); ?>
+      <i class="far fa-clipboard"></i>
     </h1>
 
   </div>

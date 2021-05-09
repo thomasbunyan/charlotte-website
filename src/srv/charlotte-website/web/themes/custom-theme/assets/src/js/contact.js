@@ -11,6 +11,7 @@ const copyEmail = () => {
   let timeoutHandle;
   $('#email').click(() => {
     copyElementText($('#email'));
+
     let anim = $('#email').removeClass(animationClassName);
     setTimeout(() => {
       anim.addClass(animationClassName);

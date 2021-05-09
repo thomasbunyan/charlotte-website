@@ -2,7 +2,7 @@
 
   .post-wrapper {
 
-    width: 90%;
+    // width: 90%;
     max-width: 600px;
     margin: auto;
     margin-bottom: 20vh;
@@ -13,30 +13,38 @@
     justify-content: center;
     align-items: center;
 
+    
     img {
       max-height: 70vh;
       max-width: 100%;
     }
+    
+    .post-info {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
 
-    h1 {
-      width: 100%;
-      margin: 5vh 0 1vh 0;
-      font-size: 1.75rem;
-      font-weight: 900;
-    }
+      h1 {
+        width: 100%;
+        margin: 5vh 0 1vh 0;
+        font-size: 1.75rem;
+        font-weight: 900;
+      }
+  
+      p {
+        line-height: 1.5rem;
+        color: $not-black;
+        font-weight: 500;
+        width: 100%;
+      }
+  
+      small {
+        width: 100%;
+        font-size: 0.85rem;
+        font-weight: 900;
+        margin: 3vh 0 0 0;
+      }
 
-    p {
-      line-height: 1.5rem;
-      color: $not-black;
-      font-weight: 500;
-      width: 100%;
-    }
-
-    small {
-      width: 100%;
-      font-size: 0.85rem;
-      font-weight: 900;
-      margin: 4vh 0 0 0;
     }
 
   }

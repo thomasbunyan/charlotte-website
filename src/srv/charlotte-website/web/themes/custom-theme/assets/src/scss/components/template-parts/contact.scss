@@ -5,8 +5,8 @@
   justify-content: start;
   align-items: center;
   text-align: center;
-  padding: 10vh 0 0 0;
-  margin: 0 0 30vh 0;
+  // padding: 10vh 0 0 0;
+  margin: 0 0 15vh 0;
 
   i {
     font-size: 5rem;
@@ -30,6 +30,15 @@
     &:hover {
       color: $accent-blue;
     }
+
+    i {
+      font-size: 1.2em;
+    }
+  }
+
+  small {
+    font-size: 0.8rem;
+    color: $dark-grey;
   }
 
 }

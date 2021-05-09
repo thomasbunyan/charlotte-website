@@ -22,7 +22,7 @@
 
   h1 {
     margin: 3rem 0 0 0;
-    font-size: clamp(1.25rem, 5vw, 3.5rem);
+    font-size: clamp(1.25rem, 5vw, 2rem);
     font-family: 'Roboto Mono';
     cursor: pointer;
     transition: color ease-in-out 0.3s;
@@ -55,7 +55,7 @@
       text-decoration: none;
       
       i {
-        font-size: 2.75rem;
+        font-size: 2.25rem;
         margin: 0 0.6rem;
         transition: color 0.3s ease-in-out;
         

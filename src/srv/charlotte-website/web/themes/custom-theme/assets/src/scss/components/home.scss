@@ -58,36 +58,44 @@
 
       .gallery-wrapper {
   
-        $post-margin: 15px;
-        $post-width: 300px;
-        
-        -webkit-column-count: auto;
-        -moz-column-count: auto;
-        column-count: auto;
-          
-        -webkit-column-gap: $post-margin;
-        -moz-column-gap: $post-margin;
-        column-gap: $post-margin;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        // justify-content: center;
   
-        -webkit-column-fill: balance;
-        -moz-column-fill: balance;
-        column-fill: balance;
-  
-        -webkit-column-width: $post-width;
-        -moz-column-width: $post-width;
-        column-width: $post-width;
-        
         .gallery-post {
-          width: 100%;
-          margin-bottom: $post-margin - 4px;
-  
-          a {
-            img {
-              width: 100%;
-            }
+          height: 300px;
+          position: relative;
+          margin: 0.75rem;
+          
+          img {
+            max-width: 100%;
+            height: 100%;
           }
+
+          &::after {
+            content: "";
+            opacity: 0;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            z-index: -1;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: opacity ease-in-out 0.2s;
+            transition-property: opacity scale;
+          }
+          
+          &:hover {
+            transform: scale(1.01);
+          }
+          &:hover::after {
+            opacity: 1;
+          }
+
         }
-  
+
       }
 
       .no-posts {
@@ -115,6 +123,16 @@
   @media all and (max-width: 600px) {
     .gallery {
       width: 100%;
+    }
+
+    .gallery-post {
+      height: unset !important;
+      margin: 0.5rem 0 !important;
+
+      img {
+        width: 100% !important;
+      }
+
     }
   }
 

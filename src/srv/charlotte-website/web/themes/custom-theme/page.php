@@ -1,5 +1,3 @@
-<!-- Static page -->
-
 <?php get_header();?>
 
   <?php 

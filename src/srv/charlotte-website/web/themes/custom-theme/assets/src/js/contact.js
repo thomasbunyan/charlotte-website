@@ -1,17 +1,10 @@
-
-export const setUp = () => {
-  
-  copyEmail();
-
-}
-
 const copyEmail = () => {
   let animationClassName = "animate__animated animate__bounceIn";
-
+  
   let timeoutHandle;
   $('#email').click(() => {
     copyElementText($('#email'));
-
+    
     let anim = $('#email').removeClass(animationClassName);
     setTimeout(() => {
       anim.addClass(animationClassName);
@@ -29,4 +22,10 @@ const copyElementText = (element) => {
   $temp.val($(element).text()).select();
   document.execCommand("copy");
   $temp.remove();
+}
+
+export const setUp = () => {
+  
+  copyEmail();
+
 }

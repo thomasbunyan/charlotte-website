@@ -6,7 +6,7 @@
   
 
   <div class="post-wrapper">
-      <img src=<?php echo get_field("image")[sizes][large]; ?> data-aos="zoom-in">
+      <img src=<?php echo get_field("image")[sizes][thumbnail]; ?> data-src=<?php echo get_field("image")[sizes][large]; ?> data-aos="zoom-in">
       <div class="post-info" data-aos="fade-up">
         <h1><?php echo get_field("title"); ?></h1>
         <p><?php echo get_field("description"); ?></p>

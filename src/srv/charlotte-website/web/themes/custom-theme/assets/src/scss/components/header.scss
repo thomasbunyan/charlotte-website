@@ -33,6 +33,7 @@ header {
       color: $black;
       border-bottom: 2px solid transparent;
       transition: border ease-in-out 0.1s;
+      font-weight: bold;
 
       &:hover {
         border-bottom: 2px solid $black;

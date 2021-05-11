@@ -26,4 +26,4 @@ clean:
 	rm -f ./src/srv/charlotte-website/.env
 	rm -f ./src/srv/charlotte-website/.env.export
 
-.PHONY: all clean build
+.PHONY: all clean build package

@@ -16,7 +16,7 @@ steps:
   - region=us-east1
   - -var
   - zone=us-east1-b
-  - ./deploy/packer.json
+  - ./packer.json
 
 - name: 'gcr.io/cloud-builders/gcloud'
   args:

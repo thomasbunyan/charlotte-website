@@ -21,7 +21,10 @@ source /etc/init.d/functions
     (. /srv/charlotte-website/.env.export && /usr/libexec/charlotte-website/charlotte-website restore)
     
     sudo rm -f /etc/nginx/sites-enabled/default
+    
     sudo service nginx reload
+
+    sudo /usr/libexec/charlotte-website/certs-install
 
     echo
 }

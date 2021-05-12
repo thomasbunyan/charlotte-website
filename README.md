@@ -1,7 +1,7 @@
 Charlotte's Website
 ![Website](https://img.shields.io/website?label=status&url=https%3A%2F%2Fcharlottebunyan.com)
-![AppVeyor branch](https://img.shields.io/appveyor/build/thomasbunyan/charlotte-website/master)
-[![GitHub license](https://img.shields.io/github/license/thomasbunyan/charlotte-website.svg)](https://github.com/thomasbunyan/charlotte-website/blob/master/LICENSE.txt)
+![GitHub branch checks state](https://img.shields.io/github/checks-status/thomasbunyan/charlotte-website/master)
+![GitHub](https://img.shields.io/github/license/thomasbunyan/charlotte-website)
 ===================
 > Running Wordpress on the cheap.
 

@@ -24,7 +24,7 @@ source /etc/init.d/functions
     
     sudo service nginx reload
 
-    sudo /usr/libexec/charlotte-website/certs-install
+    sudo /usr/local/bin/certs-install
 
     echo
 }

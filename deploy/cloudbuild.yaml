@@ -34,16 +34,16 @@ steps:
       - zone=us-east1-b
       - ./deploy/packer.json
 
-  # - name: "gcr.io/cloud-builders/gcloud"
-  #   args:
-  #     - "compute"
-  #     - "instance-groups"
-  #     - "managed"
-  #     - "rolling-action"
-  #     - "replace"
-  #     - "charlotte-website-mig-disabled"
-  #     - "--max-unavailable=100%"
-  #     - "--zone=us-east1-b"
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      - "compute"
+      - "instance-groups"
+      - "managed"
+      - "rolling-action"
+      - "replace"
+      - "charlotte-website-mig-disabled"
+      - "--max-unavailable=100%"
+      - "--zone=us-east1-b"
 
 images:
   - "gcr.io/$PROJECT_ID/charlotte-website-build"

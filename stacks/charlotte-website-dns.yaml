@@ -1,0 +1,16 @@
+resources:
+  - type: dns.v1.managedZone
+    name: charlotte-website-managed-zone
+    properties:
+      name: charlotte-website-managed-zone
+      description: Managed Zone for Charlotte's website
+      dnsName: "charlottebunyan.com."
+      dnssecConfig:
+        state: "off"
+      visibility: public
+# DNS name                      Type              TTL
+# charlottebunyan.com.          A                 300
+# <static_ip>
+
+# www.charlottebunyan.com.      CNAME             300
+# charlottebunyan.com.
